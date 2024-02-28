@@ -1,0 +1,38 @@
+easyblock = 'ConfigureMake'
+
+name = 'bart'
+version = '0.9.00'
+
+homepage = 'https://github.com/mrirecon/bart'
+
+description = """
+The tools in this software implement various reconstruction algorithms for
+Magnetic Resonance Imaging. The software is intended for research use only
+and NOT FOR DIAGNOSTIC USE. It comes without any warranty (see LICENSE for
+details).
+
+Please cite the corresponding articles when using these tools.
+Some references can be found at the end of this file. The source code might
+provide more detailed references, e.g. for specific iterative algorithms.
+"""
+
+toolchain = {'name': 'foss', 'version': '2023a'}
+
+source_urls = ['https://github.com/mrirecon/bart/archive/refs/tags/v0.9.00.tar.gz']
+sources = [SOURCELOWER_TAR_GZ]
+checksums = ['86668e4d56460a5f5def2d01fba2b5143830f34028f09cad42c099d862bd892d']
+
+builddependencies = [
+    ('binutils', '2.40'),
+]
+
+dependencies = []
+
+modextravars = {'BART_TOOLBOX_PATH': '%(installdir)s'}
+
+sanity_check_paths = {
+    'files': ['bin/bart', ],
+    'dirs': ['lib'],
+}
+
+moduleclass = 'neuroscience'
